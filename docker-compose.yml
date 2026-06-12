@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  xgboost:
+    image: mwnl-seedling-xgboost
+    container_name: mwnl-seedling-xgboost
+    build: .
+    ports:
+      - "8999:8999"
+    volumes:
+      - ./models:/app/models
+    command: ["python", "xgb.py"]
