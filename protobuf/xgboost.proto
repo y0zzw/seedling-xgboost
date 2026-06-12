@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message XGBoostRequest {
+    int32 day = 1;
+    float temperature = 2;
+    float light = 3;
+    float humidity =4;
+    float water = 5;
+    int32 plant_type = 6;
+}
+
+message XGBoostResponse {
+    float growth_cm = 1;
+    float leaf_count = 2;
+    float node_cm=3;
+}
+
+service XGBoostRegression {
+    rpc Predict(XGBoostRequest) returns (XGBoostResponse);
+}
